@@ -661,6 +661,85 @@
 }
 
     </style>
+
+    </style>
+
+    <style>
+        @media (max-width: 640px) {
+
+            /* 1. Sửa màn hình hoa hồng ban đầu */
+            .container svg {
+                width: 90%;  /* Tăng chiều rộng SVG cho vừa màn hình */
+                height: auto; /* Để chiều cao tự động */
+            }
+
+            #text-click {
+                font-size: 30px; /* Giảm cỡ chữ "Click me now !" */
+                width: 100%;
+                text-align: center;
+                bottom: 15%; /* Nâng lên một chút */
+            }
+
+            /* 2. Thu nhỏ phong bì thư một chút */
+            #castle .letter {
+                transform: scale(0.85); /* Thu nhỏ toàn bộ phong bì xuống 85% */
+            }
+
+            /* 3. Sửa kích thước Popup lá thư (Phần quan trọng nhất) */
+            .boxLetter .formLetter {
+                width: 90vw; /* Chiều rộng là 90% màn hình (thay vì 600px) */
+                height: auto; /* Chiều cao tự động theo nội dung */
+                padding: 15px;
+            }
+
+            /* 4. Ẩn phần nền bị lệch đi cho đơn giản */
+            .boxLetter .before {
+                display: none;
+            }
+
+            /* 5. Chuyển bố cục thư sang DỌC */
+            .formLetter .wrapperLetter {
+                flex-direction: column; /* Xếp chồng các mục (ảnh, chữ) theo chiều dọc */
+                align-items: center;  /* Căn giữa các mục */
+            }
+
+            /* 6. Sửa lại vị trí hộp quà */
+            .giftbox {
+                width: 100%;
+                height: 150px; /* Cố định chiều cao cho vùng ảnh */
+                margin-bottom: 10px;
+            }
+
+            .giftbox .img {
+                position: relative; /* Bỏ định vị tuyệt đối */
+                width: 120px;       /* Giảm kích thước ảnh */
+                bottom: 0;          /* Reset vị trí */
+                left: 0;            /* Reset vị trí */
+                margin: 0 auto;     /* Tự động căn giữa */
+            }
+
+            /* 7. Điều chỉnh lại phần chữ */
+            .textLetter {
+                width: 100%;
+                padding-top: 10px;
+            }
+
+            .textLetter h2 {
+                font-size: 24px; /* Giảm cỡ chữ tiêu đề (từ 30px) */
+            }
+
+            .textLetter .contentLetter {
+                font-size: 17px;  /* Giảm cỡ chữ nội dung (từ 19px) */
+                padding: 0 10px;  /* Giảm đệm 2 bên */
+            }
+
+            /* 8. Căn chỉnh lại mèo gif */
+            .mewmew1, .mewmew2 {
+                width: 70px; /* Thu nhỏ mèo lại */
+            }
+        }
+    </style>
+</head>
 </head>
 
 <body>
