@@ -31,6 +31,29 @@
 
     <!-- aa2 -->
     <style>
+        /* [MỚI] Thêm chữ "Hãy nhấn vào thư" LÊN BÌA */
+.text-cover-instruction {
+    position: absolute;
+    bottom: 30px; /* Đặt ở phía dưới phong bì */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    
+    font-size: 22px;
+    font-weight: bold;
+    color: #d62828; /* Màu đỏ */
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5); /* Thêm bóng trắng cho dễ đọc */
+    
+    z-index: 11; /* Nằm trên tất cả (front là 10) */
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Không cản trở click */
+}
+
+/* Ẩn chữ này khi di chuột vào */
+.valentines:hover .text-cover-instruction {
+    opacity: 0;
+}
         * {
             margin: 0;
             padding: 0;
@@ -662,34 +685,35 @@
 
     </style>
 
-    </style>
+
 
     <style>
         @media (max-width: 640px) {
 
             /* 1. Sửa màn hình hoa hồng ban đầu */
             .container svg {
-                width: 90%;  /* Tăng chiều rộng SVG cho vừa màn hình */
-                height: auto; /* Để chiều cao tự động */
+                width: 90%;
+                height: auto;
             }
 
             #text-click {
-                font-size: 30px; /* Giảm cỡ chữ "Click me now !" */
+                font-size: 30px;
                 width: 100%;
                 text-align: center;
-                bottom: 15%; /* Nâng lên một chút */
+                bottom: 15%;
             }
 
             /* 2. Thu nhỏ phong bì thư một chút */
             #castle .letter {
-                transform: scale(0.85); /* Thu nhỏ toàn bộ phong bì xuống 85% */
+                transform: scale(0.85);
             }
 
             /* 3. Sửa kích thước Popup lá thư (Phần quan trọng nhất) */
             .boxLetter .formLetter {
-                width: 90vw; /* Chiều rộng là 90% màn hình (thay vì 600px) */
-                height: auto; /* Chiều cao tự động theo nội dung */
+                width: 90vw; 
+                height: auto; 
                 padding: 15px;
+                box-sizing: border-box; 
             }
 
             /* 4. Ẩn phần nền bị lệch đi cho đơn giản */
@@ -699,47 +723,63 @@
 
             /* 5. Chuyển bố cục thư sang DỌC */
             .formLetter .wrapperLetter {
-                flex-direction: column; /* Xếp chồng các mục (ảnh, chữ) theo chiều dọc */
-                align-items: center;  /* Căn giữa các mục */
+                flex-direction: column;
+                align-items: center; 
             }
 
-            /* 6. Sửa lại vị trí hộp quà */
+            /* 6. Sửa lại vị trí hộp quà chính (ĐÃ SỬA) */
             .giftbox {
                 width: 100%;
-                height: 150px; /* Cố định chiều cao cho vùng ảnh */
-                margin-bottom: 10px;
+                height: 50px;      /* [ĐÃ SỬA] Giảm chiều cao vùng chứa (từ 150px) */
+                margin-bottom: 5px; /* [ĐÃ SỬA] Giảm khoảng cách dưới */
             }
 
             .giftbox .img {
-                position: relative; /* Bỏ định vị tuyệt đối */
-                width: 120px;       /* Giảm kích thước ảnh */
-                bottom: 0;          /* Reset vị trí */
-                left: 0;            /* Reset vị trí */
-                margin: 0 auto;     /* Tự động căn giữa */
+                position: relative; 
+                width: 100px;       /* [ĐÃ SỬA] Thu nhỏ ảnh (từ 120px) */
+                top: -30%; 
+                left: -33%; 
+              
             }
 
             /* 7. Điều chỉnh lại phần chữ */
             .textLetter {
                 width: 100%;
                 padding-top: 10px;
+                box-sizing: border-box; 
             }
 
             .textLetter h2 {
-                font-size: 24px; /* Giảm cỡ chữ tiêu đề (từ 30px) */
+                font-size: 24px;
+                text-align: center;
+                word-break: break-word; 
             }
 
             .textLetter .contentLetter {
-                font-size: 17px;  /* Giảm cỡ chữ nội dung (từ 19px) */
-                padding: 0 10px;  /* Giảm đệm 2 bên */
+                font-size: 17px;
+                padding: 0 10px;
+                text-align: center;
+                word-break: break-word;     
+                overflow-wrap: break-word;  
+                box-sizing: border-box;     
             }
 
             /* 8. Căn chỉnh lại mèo gif */
-            .mewmew1, .mewmew2 {
-                width: 70px; /* Thu nhỏ mèo lại */
+            .mewmew1 {
+                width: 50px; 
+                bottom: -20px;
+                left: -10px;
+            }
+            .mewmew2 {
+                width: 50px; 
+                bottom: -20px;
+                right: -10px;
             }
         }
     </style>
-</head>
+
+
+
 </head>
 
 <body>
@@ -950,6 +990,7 @@
             <div class="valentines">
                 <div class="envelope"></div>
                 <div class="front"></div>
+                <div class="text-cover-instruction">(Hãy nhấn vào thư)</div>
                 <div class="card">
                     <br class="text">🌹Happy Vietnamese Women's Day!</div>
                     <div class="heart"></div>
@@ -1015,7 +1056,7 @@
         <p id="text-click" style=" display: none;   font-family: fantasy;
         color: indianred;
         font-size: 50px;
-        top: 80%;">Click me now !</p>
+        top: 80%;">Hãy nhấn vào bông hoa!</p>
     </div>
 
     <!-- <div class="box-content">
@@ -1042,11 +1083,11 @@
                     </div>
                     
                     <div class="wrapperLetter">
-                        <div class="giftbox">
+                        <!-- <div class="giftbox">
                             <div class="img">
                                 <img src="./image/giftbox.png" alt="">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="textLetter">
                             <h2></h2>
                             <p class="contentLetter"></p>
